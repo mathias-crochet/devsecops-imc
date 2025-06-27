@@ -53,4 +53,4 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        args: --file=app/requirements.txt --project-name=imc-web
+        args: --file=./app/requirements.txt --project-name=imc-web
