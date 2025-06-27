@@ -60,7 +60,7 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: '${{ secrets.DOCKER_USERNAME }}/imc-web:latest'
+        image: '${{ secrets.DOCKERHUB_USERNAME }}/imc-web:latest'
       #continue-on-error: true
 
     - name: Snyk Scan DB
@@ -68,5 +68,5 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: '${{ secrets.DOCKER_USERNAME }}/imc-db:latest'
+        image: '${{ secrets.DOCKERHUB_USERNAME }}/imc-db:latest'
       #continue-on-error: true
