@@ -4,6 +4,3 @@ ENV MYSQL_ROOT_PASSWORD=root
 ENV MYSQL_DATABASE=imc_db
 
 COPY init.sql /docker-entrypoint-initdb.d/
-
-COPY app/requirements.txt .
-RUN pip install -r /app/requirements.txt
