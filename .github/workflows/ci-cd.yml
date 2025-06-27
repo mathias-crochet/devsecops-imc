@@ -48,9 +48,25 @@ jobs:
     - name: Install Python dependencies
       run: pip install -r app/requirements.txt
 
-    - name: Scan code with Snyk
-      uses: snyk/actions/python@master
+    # - name: Scan code with Snyk
+    #   uses: snyk/actions/python@master
+    #   env:
+    #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+    #   with:
+    #     args: --file=./app/requirements.txt --project-name=imc-web
+
+    - name: Snyk Scan Frontend
+      uses: snyk/actions/docker@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        args: --file=./app/requirements.txt --project-name=imc-web
+        image: '${{ secrets.DOCKER_USERNAME }}/imc-web:latest'
+      #continue-on-error: true
+
+    - name: Snyk Scan DB
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: '${{ secrets.DOCKER_USERNAME }}/imc-db:latest'
+      #continue-on-error: true
