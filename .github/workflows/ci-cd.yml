@@ -40,6 +40,9 @@ jobs:
       with:
         image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/imc-web:latest
 
+    - name: Install Python dependencies
+      run: pip install -r app/requirements.txt
+
     - name: Scan code with Snyk
       uses: snyk/actions/python@master
       env:
