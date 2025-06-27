@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   web:
-    build:
-      context: ./app
+    image: mathiasestiam/imc-web:latest
     container_name: imc-web
     ports:
       - "5000:5000"
@@ -16,6 +15,5 @@ services:
       - DB_NAME=imc_db
 
   db:
-    build:
-      context: ./db
+    image: mathiasestiam/imc-db:latest
     container_name: imc-db
